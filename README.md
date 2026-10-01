@@ -2,19 +2,19 @@
 
 An production-grade, incremental Data Engineering project implementing a modern **Data Lakehouse architecture** on **Azure Databricks** and **Apache Spark**, built around historical Formula 1 Motor Racing datasets.
 
-## 🚀 Architectural Overview
+##  Architectural Overview
 
 This platform processes multi-format raw datasets (CSV, single-line JSON, multi-line JSON) into structured, analytics-ready business insights following the **Medallion Design Pattern** and modern 2026 data governance standards.
 
 
 ```
                   ┌───────────────┐
-                  │  Raw Sources  │ (CSV, JSON via Azure Blob Storage)
+                  │  Raw Sources  │ (CSV, JSON via Azure Data Lake Storage)
                   └───────┬───────┘
                           │ (PySpark Ingestion)
                           ▼
                ┌─────────────────────┐
-               │    BRONZE LAYER     │ (Raw Ingestion / Append-Only Delta)
+               │    BRONZE LAYER     │ (Raw Ingestion -> Delta Tables)
                └───────┬─────────────┘
                           │ (Schema Validation & Cleansing)
                           ▼
@@ -24,7 +24,7 @@ This platform processes multi-format raw datasets (CSV, single-line JSON, multi-
                           │ (Aggregations & Analytical Business Logic)
                           ▼
                ┌─────────────────────┐
-               │     GOLD LAYER      │ (Star/Snowflake Schema / Aggregated Data)
+               │     GOLD LAYER      │ (Star Schema / Aggregated Data)
                └───────┬─────────────┘
                           │
                           ▼
@@ -34,7 +34,7 @@ This platform processes multi-format raw datasets (CSV, single-line JSON, multi-
    
 ```
 
-## 🛠️ Tech Stack & Modern Capabilities
+##  Tech Stack & Modern Capabilities
 
 * **Compute & Processing:** Apache Spark (PySpark & Spark SQL) for high-performance distributed data transformations.
 * **Storage Framework:** Delta Lake to ensure ACID transactions, time travel capabilities, and schema enforcement.
@@ -42,7 +42,7 @@ This platform processes multi-format raw datasets (CSV, single-line JSON, multi-
 * **Orchestration:** Automated incremental scheduling workflows built via **Lakeflow Jobs**.
 * **Analytics Delivery:** Engineered analytical views and serving layers optimized for **Databricks SQL Dashboards**.
 
-## 📁 Pipeline Implementation Details
+##  Pipeline Implementation Details
 
 1. **Bronze (Ingestion Layer):** Ingests raw data from cloud storage, enforces strict schema mapping where required, and stores them as append-only Delta tables. Handles nested JSON flattening dynamically.
 2. **Silver (Transformation Layer):** Cleanses data by handling null values, applying data type casting, renaming columns for business alignment, and performing complex relational joins (Drivers, Results, Constructors, Races).
