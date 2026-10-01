@@ -4,7 +4,7 @@ An production-grade, incremental Data Engineering project implementing a modern 
 
 ## 🚀 Architectural Overview
 
-This platform processes multi-format raw datasets (CSV, split JSON, multi-line JSON) into structured, analytics-ready business insights following the **Medallion Design Pattern** and modern 2026 data governance standards.
+This platform processes multi-format raw datasets (CSV, single-line JSON, multi-line JSON) into structured, analytics-ready business insights following the **Medallion Design Pattern** and modern 2026 data governance standards.
 
 
 ```
